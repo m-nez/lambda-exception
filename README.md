@@ -67,6 +67,7 @@ https://docs.python.org/3.8/library/dis.html#python-bytecode-instructions.
 The first byte is the opcode for `LOAD_FAST`, the second byte is its argument i.e. 0.
 > `LOAD_FAST(var_num)`
 >     Pushes a reference to the local `co_varnames[var_num]` onto the stack.
+
 So we push the reference to 'x' on the stack. The varnames is a list of strings containing only 'x'.
 We will push the only argument of the function we are defining to the stack.
 
