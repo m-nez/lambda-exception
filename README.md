@@ -27,10 +27,10 @@ class code(object)
  |        lnotab[, freevars[, cellvars]])
  |  
  |  Create a code object.  Not for the faint of heart.
-```python
+```
 `type((lambda: 0).__code__)` is the code class.  
 So when we say
-```
+```python
 type((lambda: 0).__code__)(
     1,0,1,1,67,b'|\0\202\1\0',(),(),('x',),'','',1,b''),{}
 )
