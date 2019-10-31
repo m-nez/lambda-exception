@@ -32,8 +32,7 @@ class code(object)
 So when we say
 ```python
 type((lambda: 0).__code__)(
-    1,0,1,1,67,b'|\0\202\1\0',(),(),('x',),'','',1,b''),{}
-)
+    1,0,1,1,67,b'|\0\202\1\0',(),(),('x',),'','',1,b'')
 ```
 we are calling the constructor of the code object with the following arguments:
 * argcount=1
