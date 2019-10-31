@@ -153,6 +153,6 @@ When we run it we will get the same result as before. It's just cleaner.
 
 Author: Michał Nienański
 # Bibliography
-https://stackoverflow.com/questions/8294618/define-a-lambda-expression-that-raises-an-exception
-https://github.com/python/cpython/blob/master/Objects/codeobject.c
-https://github.com/python/cpython/blob/master/Include/code.h
+* https://stackoverflow.com/questions/8294618/define-a-lambda-expression-that-raises-an-exception
+* https://github.com/python/cpython/blob/master/Objects/codeobject.c
+* https://github.com/python/cpython/blob/master/Include/code.h
