@@ -128,7 +128,7 @@ class function(object)
 
 We then call the constructed function passing an Exception instance as an argument.
 Consequently we called a lambda function which raises an exception.
-Let's run the snipped and see that it indeed works as intended.
+Let's run the snippet and see that it indeed works as intended.
 ```python
 >>> type(lambda: 0)(type((lambda: 0).__code__)(
 ...     1,0,1,1,67,b'|\0\202\1\0',(),(),('x',),'','',1,b''),{}
