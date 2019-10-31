@@ -65,18 +65,22 @@ Let's see what they mean.
 The documentation of opcodes can by found here
 https://docs.python.org/3.8/library/dis.html#python-bytecode-instructions.
 The first byte is the opcode for `LOAD_FAST`, the second byte is its argument i.e. 0.
-> `LOAD_FAST(var_num)`
->     Pushes a reference to the local `co_varnames[var_num]` onto the stack.
+```
+LOAD_FAST(var_num)
+    Pushes a reference to the local co_varnames[var_num] onto the stack.
+```
 
 So we push the reference to 'x' on the stack. The varnames is a list of strings containing only 'x'.
 We will push the only argument of the function we are defining to the stack.
 
 The next byte is the opcode for `RAISE_VARAGS` and the next byte is its argument i.e. 1.
-> `RAISE_VARARGS(argc)`
->     Raises an exception using one of the 3 forms of the raise statement, depending on the value of argc:
->         0: raise (re-raise previous exception)
->         1: raise TOS (raise exception instance or type at TOS)
->         2: raise TOS1 from TOS (raise exception instance or type at TOS1 with __cause__ set to TOS)
+```
+RAISE_VARARGS(argc)
+    Raises an exception using one of the 3 forms of the raise statement, depending on the value of argc:
+        0: raise (re-raise previous exception)
+        1: raise TOS (raise exception instance or type at TOS)
+        2: raise TOS1 from TOS (raise exception instance or type at TOS1 with __cause__ set to TOS)
+```
 
 The TOS is the top-of-stack.
 Since we pushed the first argument (`x`) of our function to the stack and argc=1 we will raise the
