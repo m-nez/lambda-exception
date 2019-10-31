@@ -70,7 +70,7 @@ LOAD_FAST(var_num)
     Pushes a reference to the local co_varnames[var_num] onto the stack.
 ```
 
-So we push the reference to 'x' onto the stack. The varnames is a list of strings containing only 'x'.
+So we push the reference to 'x' onto the stack. The `varnames` is a list of strings containing only 'x'.
 We will push the only argument of the function we are defining to the stack.
 
 The next byte is the opcode for `RAISE_VARAGS` and the next byte is its argument i.e. 1.
@@ -83,7 +83,7 @@ RAISE_VARARGS(argc)
 ```
 
 The TOS is the top-of-stack.
-Since we pushed the first argument (`x`) of our function to the stack and argc=1 we will raise the
+Since we pushed the first argument (`x`) of our function to the stack and `argc` is 1 we will raise the
 `x` if it is an exception instance or make an instance of `x` and raise it otherwise.
 
 The last byte i.e. 0 is not used. It is not a valid opcode. It might as well not be there.
