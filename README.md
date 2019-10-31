@@ -11,13 +11,13 @@ type(lambda: 0)(type((lambda: 0).__code__)(
 ```
 
 # Explanation
-`lambda: 0` - and in instance of the builtins.function class.
-`type(lambda: 0)` - the builtins.function class.
-`(lambda: 0).__code__` - a code object.
-A code object is an object which holds the compiled bytecode among other things.
+`lambda: 0` is an instance of the `builtins.function` class.  
+`type(lambda: 0)` is the `builtins.function` class.  
+`(lambda: 0).__code__` is a `code` object.  
+A `code` object is an object which holds the compiled bytecode among other things.
 It is defined here in CPython https://github.com/python/cpython/blob/master/Include/code.h.
 Its methods are implemented here https://github.com/python/cpython/blob/master/Objects/codeobject.c.
-We can run help on the code object:
+We can run the help on the code object:
 ```
 Help on code object:
 
@@ -27,8 +27,8 @@ class code(object)
  |        lnotab[, freevars[, cellvars]])
  |  
  |  Create a code object.  Not for the faint of heart.
-```
-`type((lambda: 0).__code__)` - the code class.
+```python
+`type((lambda: 0).__code__)` is the code class.  
 So when we say
 ```
 type((lambda: 0).__code__)(
@@ -49,6 +49,7 @@ we are calling the constructor of the code object with the following arguments:
 * name=''
 * firstlineno=1
 * lnotab=b''
+
 You can read about what the arguments mean in the definition of the `PyCodeObject`
 https://github.com/python/cpython/blob/master/Include/code.h.
 The value of 67 for the flags argument is for e.g. `CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE`.
@@ -81,7 +82,7 @@ The TOS is the top-of-stack.
 Since we pushed the first argument (`x`) of our function to the stack and argc=1 we will raise the
 `x` if it is an exception instance or make an instance of `x` and raise it otherwise.
 
-The last byte i.e. 0 is not used. It might as well not be there.
+The last byte i.e. 0 is not used. It is not a valid opcode. It might as well not be there.
 
 Going back to code snippet we are anylyzing:
 ```python
@@ -100,8 +101,29 @@ type(lambda: 0)(type((lambda: 0).__code__)(
     1,0,1,1,67,b'|\0\202\1\0',(),(),('x',),'','',1,b''),{}
 )
 ```
+Let's call help on a function object to see what the arguments mean.
+```
+Help on class function in module builtins:
+
+class function(object)
+ |  function(code, globals, name=None, argdefs=None, closure=None)
+ |  
+ |  Create a function object.
+ |  
+ |  code
+ |    a code object
+ |  globals
+ |    the globals dictionary
+ |  name
+ |    a string that overrides the name from the code object
+ |  argdefs
+ |    a tuple that specifies the default argument values
+ |  closure
+ |    a tuple that supplies the bindings for free variables
+```
+
 We then call the constructed function passing an Exception instance as an argument.
-We consequently called a lambda function which raises an exception.
+Consequently we called a lambda function which raises an exception.
 Let's run the snipped and see that it indeed works as intended.
 ```python
 >>> type(lambda: 0)(type((lambda: 0).__code__)(
