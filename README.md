@@ -70,7 +70,7 @@ LOAD_FAST(var_num)
     Pushes a reference to the local co_varnames[var_num] onto the stack.
 ```
 
-So we push the reference to 'x' on the stack. The varnames is a list of strings containing only 'x'.
+So we push the reference to 'x' onto the stack. The varnames is a list of strings containing only 'x'.
 We will push the only argument of the function we are defining to the stack.
 
 The next byte is the opcode for `RAISE_VARAGS` and the next byte is its argument i.e. 1.
