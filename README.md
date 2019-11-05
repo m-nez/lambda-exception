@@ -51,7 +51,7 @@ we are calling the constructor of the code object with the following arguments:
 
 You can read about what the arguments mean in the definition of the `PyCodeObject`
 https://github.com/python/cpython/blob/master/Include/code.h.
-The value of 67 for the `flags` argument is for e.g. `CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE`.
+The value of 67 for the `flags` argument is for example `CO_OPTIMIZED | CO_NEWLOCALS | CO_NOFREE`.
 
 The most importand argument is the `codestring` which contains instruction opcodes.
 Let's see what they mean.
